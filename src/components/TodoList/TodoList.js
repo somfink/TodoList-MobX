@@ -1,20 +1,27 @@
 import { observer } from "mobx-react";
 import { TodoStore } from "../../store/TodoStore";
+import DoneTodoItems from "../DoneTodoItems/DoneTodoItems";
+import TodoItems from "../TodoItem/TodoItems";
+
 import "./TodoList.css";
 
 const TodoList = observer(() => {
-  const todoItems = TodoStore.todos.map((item) => (
-    <li className="todo-item" key={item.id}>
-      {item.value}
-    </li>
-  ));
+  const doneTodoTasks = TodoStore.doneTodos ? (
+    <>
+      <h3 className="todo-list__heading">Done:</h3>
+      <ul className="todo-list">
+        <DoneTodoItems />
+      </ul>
+    </>
+  ) : null;
 
   return (
     <section className="todo-container">
       <h3 className="todo-list__heading">Pending:</h3>
-      <ul className="todo-list">{todoItems}</ul>
-      <h3 className="todo-list__heading">Done:</h3>
-      <ul className="todo-list"></ul>
+      <ul className="todo-list">
+        <TodoItems />
+      </ul>
+      {doneTodoTasks}
     </section>
   );
 });

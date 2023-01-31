@@ -2,13 +2,11 @@ import TodoList from "../TodoList/TodoList";
 import "./Todo.css";
 import { TodoStore } from "../../store/TodoStore";
 import { useState } from "react";
-import { observer } from "mobx-react";
 
 const Todo = () => {
   const [todoInput, setTodoInput] = useState("");
   const changeInputHandler = (e) => {
     setTodoInput(e.target.value);
-    console.log(todoInput);
   };
 
   const addTodoHandler = (e) => {
@@ -16,7 +14,7 @@ const Todo = () => {
     if (!todoInput) {
       return;
     }
-    TodoStore.addTodo({value: todoInput, id: crypto.randomUUID(), status: 'todo'});
+    TodoStore.addTodo({value: todoInput, id: crypto.randomUUID()});
     setTodoInput("");
   };
 
@@ -27,6 +25,7 @@ const Todo = () => {
         <form className="todo__form" onSubmit={addTodoHandler}>
           <input
             type="text"
+            placeholder="Create a new todo..."
             className="todo__input"
             onChange={changeInputHandler}
             value={todoInput}

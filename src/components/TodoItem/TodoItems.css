@@ -1,0 +1,38 @@
+.todo-item {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: #232747;
+    color: #ffffff;
+    border-bottom: 1px solid #b8b8b8;
+}
+
+.todo-item:last-child {
+    border-radius: 0 0 20px 20px;
+}
+
+.todo-item__icon-container {
+    width: 4.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-item__icon {
+    font-size: 1.7rem;
+    transition: color .2s ease-in;
+}
+
+.todo-item__icon:hover {
+    cursor: pointer;
+}
+
+.todo-item__icon:first-child:hover {
+    color: rgb(76, 231, 38);
+}
+
+.todo-item__icon:last-child:hover {
+    color: rgb(231, 38, 38);
+}
